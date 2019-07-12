@@ -44,11 +44,15 @@ void loop()
    int lectura = analogRead(A0);
    int porcentaje = map(lectura, 1023, 0,0, 100);
    Serial.print("La lectura de humedad es: ");
-   Serial.println(lectura); 
-   Serial.print("La humedad es del: ");
-   Serial.println(porcentaje);
-   Serial.println("%");
-  
+   Serial.print(lectura); 
+   Serial.print(" de 1023 segun los valores de humedad de la tablatura para dht Arduino"); 
+   Serial.println(" ");
+   
+   Serial.print("El porcentaje de la humedad es del: ");
+   Serial.print(porcentaje);
+   Serial.print("%");
+   Serial.println(" ");
+ 
    int condicion;
    int *ptr;
    ptr=&condicion;
@@ -99,11 +103,12 @@ void loop()
     delay(SEGSUS);
     digitalWrite(DHTPIN2, LOW);
     digitalWrite(DHTPIN3, LOW);
+    Serial.println("Se activara el riego diario de los dos sustratos");
     }
   else if(condicion=NO){
     digitalWrite(DHTPIN2, LOW);
     digitalWrite(DHTPIN3, LOW);
-    
+     Serial.println("No se activara el riego diario de los dos sustratos");
     }
   
   
